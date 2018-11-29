@@ -56,17 +56,28 @@ ul.topnav li.icon {display: none;}
 }
 </style>
         <link rel='stylesheet' type='text/css' href='css/styly.css' />  
-        <title>Cars</title>
+        <title>Anonymni cokoholici</title>
     </head>
     <body>  
         <div id="box">
             <div id="menu">
                 <?php
                 echo ('<ul class="topnav" id="myTopnav">');
-                echo ('<li><a href="index.php">Domov</a></li>');                 
-                echo ('<li><a href="index.php?page=pridaj_clena">Pridaj clena</a></li>');        
+                echo ('<li><a href="index.php">Domov</a></li>');
+                echo ('<li><a href="index.php?page=verifikacia">Verifikacia clena</a></li>');
+                echo ('<li><a href="index.php?page=report_clen">Report clena</a></li>');
                 echo ('<li><a href="index.php?page=clenovia">Clenovia</a></li>');
-                echo ('<li class="icon"><a href="javascript:void(0);" onclick="myFunction()">&#9776;</a></li>');
+                echo ('<li><a href="index.php?page=poskytovatelia">Poskytovatelia</a></li>');
+                if (isset($_SESSION['prihlaseny'])) {
+                    echo ('<li><a href="index.php?page=ukony">Ukony</a></li>');
+                    echo ('<li><a href="index.php?page=fakturacia">Fakturacia</a></li>');
+                    echo ('<li><a href="index.php?page=report_poskytovatel">Report poskytovatela</a></li>');
+                    echo "<li><a href='logout.php?logout=yes'>Logout</a></li>";
+                }else {
+                    echo "<li><a href='index.php?page=login'>Prihlasit</a></li> "
+                    . "<li><a href='index.php?page=pridaj_clena'>Pridaj pouzivatela</a></li>";
+                }
+                echo ('<li class="icon"><a href="javascript:void(0);" onclick="myFunction()"-->&#9776;</a></li>');
                 echo ('</ul>');
                 ?>                
             </div>
